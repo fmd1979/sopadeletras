@@ -1,0 +1,31 @@
+SOPA VIVA 1.0 — INSTALACIÓN EN HOSTING
+Desarrollado por SiteEcuador SAS
+
+REQUISITOS
+Hosting web con HTTPS. No necesita PHP, MySQL, Composer ni claves API.
+El juego usa JavaScript; debe estar habilitado en el navegador.
+
+PUBLICACIÓN EN CPANEL
+1. Crea un subdominio, por ejemplo sopas.tudominio.com, o una carpeta nueva como public_html/sopas.
+2. Abre el Administrador de archivos y entra en la raíz documental del subdominio o en public_html/sopas.
+3. Sube este ZIP y extráelo allí. index.html debe quedar directamente en esa carpeta.
+4. Activa SSL/HTTPS para el dominio. No sobrescribas archivos de un sitio existente.
+5. Visita https://sopas.tudominio.com o https://tudominio.com/sopas/ según la opción elegida.
+6. Comprueba Inicio, Cómo se usa, Crear mi sopa y la impresión/PDF.
+
+El ZIP incluye .htaccess para servir .mjs como JavaScript en Apache/LiteSpeed. Puede ser necesario activar Mostrar archivos ocultos para verlo. En Nginx, verifica que .mjs tenga tipo text/javascript o application/javascript.
+
+PRUEBA RÁPIDA
+Selecciona Naturaleza, 6 palabras, tamaño 10 x 10 y nivel Tranquilo. Crea la sopa. Toca los extremos de una palabra para marcarla. Prueba Imprimir / PDF y la hoja de respuestas.
+
+IA GRATUITA OPCIONAL
+La IA se ejecuta en el navegador con WebLLM y Qwen2.5. Requiere HTTPS, WebGPU, memoria compatible y descarga inicial de varios cientos de MB; consume datos y recursos del equipo. No requiere una clave ni pago por consulta. Necesita acceso a esm.run y a las fuentes del modelo, incluidos Hugging Face y las bibliotecas de WebLLM. La IA no es compatible con todos los dispositivos y puede equivocarse. Revisa las palabras antes de crear la sopa. Los temas y las palabras propias no necesitan activar IA.
+
+La generación real con IA no se pudo verificar en el navegador de pruebas por falta de WebGPU. Sí se verificaron 504 sopas, la selección de palabras en pantalla y el aviso de incompatibilidad.
+
+USO
+La página como-usar.html contiene el manual completo. Las partidas no se guardan al salir o recargar. Imprimir permite guardar PDF desde el navegador.
+
+ARCHIVOS
+index.html, generador.html, como-usar.html, style.css, pages.css, app.mjs, puzzle.mjs y .htaccess.
+No abrir index.html con doble clic: los módulos necesitan un servidor web HTTP/HTTPS.
