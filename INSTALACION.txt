@@ -1,4 +1,4 @@
-SOPA VIVA 1.0 — INSTALACIÓN EN HOSTING
+SOPA VIVA 1.1.0 — INSTALACIÓN EN HOSTING
 Desarrollado por SiteEcuador SAS
 
 REQUISITOS
@@ -29,3 +29,7 @@ La página como-usar.html contiene el manual completo. Las partidas no se guarda
 ARCHIVOS
 index.html, generador.html, como-usar.html, style.css, pages.css, app.mjs, puzzle.mjs y .htaccess.
 No abrir index.html con doble clic: los módulos necesitan un servidor web HTTP/HTTPS.
+
+APP Y COLORES (1.1.0)
+Copia también manifest.webmanifest, sw.js, pwa.js, themes.css, theme-init.js y toda la carpeta icons. Usa HTTPS. Android: Chrome > Instalar app o menú > Instalar aplicación / Agregar a pantalla de inicio. iPhone/iPad: Safari > Compartir > Agregar a pantalla de inicio > Abrir como app web (si aparece) > Agregar. No se instala automáticamente.
+El selector Color de pantalla guarda tu preferencia en el dispositivo. Tras la primera carga completa, los temas y palabras propias funcionan sin conexión. Para actualizar, respalda y sustituye todos los archivos públicos; no solo index.html.

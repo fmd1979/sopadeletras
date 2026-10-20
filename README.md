@@ -91,3 +91,13 @@ Se verificaron 504 sopas con cantidad completa, letras y direcciones correctas, 
 ## Colaborar
 
 Abre un issue con los pasos para reproducir un error, navegador y dispositivo, sin datos personales. Para proponer cambios, envía un pull request e indica qué cambia y cómo lo verificaste. Las ampliaciones de vocabulario, accesibilidad y compatibilidad de IA son bienvenidas.
+
+## Versión 1.1.0: app instalable y colores
+
+Publica también `manifest.webmanifest`, `sw.js`, `pwa.js`, `themes.css`, `theme-init.js` y la carpeta `icons`. Requiere HTTPS o localhost. Android: Chrome → Instalar app o menú → Instalar aplicación / Agregar a pantalla de inicio. iPhone/iPad: Safari → Compartir → Agregar a pantalla de inicio → Abrir como app web (si aparece) → Agregar. La instalación requiere confirmación y su disponibilidad depende del navegador.
+
+Selector de cinco temas: verde, azul, lavanda, sepia y alto contraste. Se recuerda localmente; no cambia la impresión. El service worker prepara las páginas y el vocabulario para usarlos sin conexión tras una primera carga completa. No almacena API ni recursos externos de IA. Las partidas no se guardan al cerrar.
+
+Para actualizar cPanel, respalda y reemplaza todos los archivos públicos y copia icons. Solo reemplazar index.html no basta. Incrementa la versión de sw.js en futuras publicaciones. Las rutas son relativas, compatibles con subcarpetas y GitHub Pages.
+
+Verificación PWA: `node --test pwa.test.mjs`. La instalación en Android/iOS debe comprobarse en dispositivos reales.
