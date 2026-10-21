@@ -101,3 +101,15 @@ Selector de cinco temas: verde, azul, lavanda, sepia y alto contraste. Se recuer
 Para actualizar cPanel, respalda y reemplaza todos los archivos públicos y copia icons. Solo reemplazar index.html no basta. Incrementa la versión de sw.js en futuras publicaciones. Las rutas son relativas, compatibles con subcarpetas y GitHub Pages.
 
 Verificación PWA: `node --test pwa.test.mjs`. La instalación en Android/iOS debe comprobarse en dispositivos reales.
+
+## Versión 1.2.0 · Multiidioma
+
+Interfaz, portada, historia, guía, accesibilidad e impresión en español, inglés y portugués. El selector de idioma de pantalla detecta el navegador al inicio y guarda la preferencia. El idioma del vocabulario se elige por separado y se guarda en el dispositivo. Los ocho bancos están disponibles en los tres idiomas; los nombres geográficos de Ecuador se conservan. La IA recibe el idioma de vocabulario seleccionado; revisa sus resultados. Las listas propias no se traducen. La cuadrícula elimina acentos y espacios, conserva Ñ y usa relleno A–Z para inglés/portugués. Cambiar el idioma de pantalla conserva la cuadrícula y los aciertos actuales.
+
+Las traducciones se mantienen en `i18n-data.js`; los bancos, en `banks.mjs`. Para actualizar en hosting reemplaza todos los archivos. El caché PWA 1.2.0 incluye los nuevos recursos para uso sin conexión. Cierra y vuelve a abrir la app tras actualizar.
+
+Pruebas: `node tests.mjs`, `node --test pwa.test.mjs i18n.test.mjs`. La ejecución real de WebLLM requiere WebGPU y no forma parte de las pruebas automatizadas.
+
+## Versión 1.2.1 · Alemán
+
+Se añade Deutsch a la interfaz, portada, guía, impresión, accesibilidad y vocabulario independiente. Ocho colecciones en alemán; la IA recibe German como idioma de destino. En alemán se convierten Ä/Ö/Ü a AE/OE/UE y ß/ẞ a SS antes de validar longitud y duplicados; los bancos ya usan estas grafías. Se conservan los nombres geográficos de Ecuador. El caché PWA pasa a 1.2.1. La generación real del modelo y la apariencia en dispositivos requieren revisión manual.

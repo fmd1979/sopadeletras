@@ -1,6 +1,6 @@
 const PREFIX = 'sopa-viva:' + self.registration.scope + ':';
-const CACHE = PREFIX + '1.1.0';
-const FILES = ['./','index.html','generador.html','como-usar.html','style.css','pages.css','app.mjs','puzzle.mjs','pwa.js','themes.css','theme-init.js','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png','icons/apple-touch-icon.png'];
+const CACHE = PREFIX + '1.2.1';
+const FILES = ['./','index.html','generador.html','como-usar.html','style.css','pages.css','i18n-data.js','i18n.js','banks.mjs','app.mjs','puzzle.mjs','pwa.js','themes.css','theme-init.js','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png','icons/apple-touch-icon.png'];
 const URLS = FILES.map(path => new URL(path, self.registration.scope).href);
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(URLS)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith(PREFIX) && key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));

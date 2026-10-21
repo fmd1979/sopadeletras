@@ -33,3 +33,14 @@ No abrir index.html con doble clic: los módulos necesitan un servidor web HTTP/
 APP Y COLORES (1.1.0)
 Copia también manifest.webmanifest, sw.js, pwa.js, themes.css, theme-init.js y toda la carpeta icons. Usa HTTPS. Android: Chrome > Instalar app o menú > Instalar aplicación / Agregar a pantalla de inicio. iPhone/iPad: Safari > Compartir > Agregar a pantalla de inicio > Abrir como app web (si aparece) > Agregar. No se instala automáticamente.
 El selector Color de pantalla guarda tu preferencia en el dispositivo. Tras la primera carga completa, los temas y palabras propias funcionan sin conexión. Para actualizar, respalda y sustituye todos los archivos públicos; no solo index.html.
+
+ACTUALIZACION 1.2.0 MULTIIDIOMA
+Reemplaza todos los archivos del paquete, incluidos i18n-data.js, i18n.js y banks.mjs.
+Abre la web con internet una vez y vuelve a abrir la app para actualizar el cache.
+Selecciona Idioma de pantalla en la barra superior e Idioma de las palabras en el generador.
+Disponible: español, inglés y portugués. Las listas propias no se traducen.
+
+ACTUALIZACION 1.2.1
+Incluye alemán (Deutsch) además de español, inglés y portugués.
+Reemplaza todos los archivos y abre la app con internet para actualizar el cache.
+En alemán: Ä->AE, Ö->OE, Ü->UE y ß->SS antes de contar las letras.

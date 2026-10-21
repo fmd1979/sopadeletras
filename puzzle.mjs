@@ -8,10 +8,10 @@ export const banks = {
 'Tecnología':['TECLADO','RATON','PANTALLA','MONITOR','MEMORIA','DISCO','ARCHIVO','CARPETA','INTERNET','RED','DATOS','CODIGO','PROGRAMA','SISTEMA','SERVIDOR','CORREO','TABLETA','MOVIL','CAMARA','IMPRESORA','ROBOT','DRON','SENSOR','CABLE','BATERIA','CHIP','MODEM','PUERTO','NUBE','CONSOLA'],
 'Oficios':['MEDICO','DOCENTE','PANADERO','COCINERO','BOMBERO','POLICIA','ENFERMERO','CARPINTERO','ALBAÑIL','PINTOR','MECANICO','SASTRE','ZAPATERO','JARDINERO','AGRICULTOR','PESCADOR','PILOTO','CONDUCTOR','ABOGADO','ARQUITECTO','INGENIERO','DENTISTA','VETERINARIO','CANTANTE','ACTOR','ESCRITOR','ARTESANO','FOTOGRAFO','CONTADOR','ELECTRICISTA']
 };
-export function normalize(w){return w.toUpperCase().replace(/Ñ/g,'\u0001').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\u0001/g,'Ñ').replace(/[^A-ZÑ]/g,'');}
-export function parseWords(text,size=30){return [...new Set(text.split(/[,;\n]+/).map(w=>normalize(w.trim())))].filter(w=>w.length>=2&&w.length<=size);}
+export function normalize(w,language='es'){if(language==='de')w=w.replace(/[äÄ]/g,'AE').replace(/[öÖ]/g,'OE').replace(/[üÜ]/g,'UE').replace(/[ßẞ]/g,'SS');return w.toUpperCase().replace(/Ñ/g,'\u0001').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\u0001/g,'Ñ').replace(/[^A-ZÑ]/g,'');}
+export function parseWords(text,size=30,language='es'){return [...new Set(text.split(/[,;\n]+/).map(w=>normalize(w.trim(),language)))].filter(w=>w.length>=2&&w.length<=size);}
 export const shuffle=a=>a.map(v=>({v,r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
-export function generate(words,size,level='medium'){
+export function generate(words,size,level='medium',alphabet='ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'){
  if(!Number.isInteger(size)||size<8||size>24)throw new Error('El tamaño debe estar entre 8 y 24.');
  if(!words.length||words.some(w=>w.length>size))throw new Error('Hay palabras que no caben en la cuadrícula.');
  const dirs=level==='easy'?[[0,1],[1,0]]:level==='medium'?[[0,1],[1,0],[1,1],[-1,1]]:[[0,1],[1,0],[1,1],[-1,1],[0,-1],[-1,0],[-1,-1],[1,-1]];
@@ -27,7 +27,7 @@ export function generate(words,size,level='medium'){
  if(!candidates.length)break;
  const cells=candidates[Math.floor(Math.random()*candidates.length)];cells.forEach(([r,c],i)=>grid[r][c]=word[i]);placed.push({word,cells});
  }
- if(placed.length===words.length){const alphabet='ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';grid.forEach(row=>row.forEach((v,i)=>{if(!v)row[i]=alphabet[Math.floor(Math.random()*alphabet.length)];}));return {grid,placed,size,level};}
+ if(placed.length===words.length){grid.forEach(row=>row.forEach((v,i)=>{if(!v)row[i]=alphabet[Math.floor(Math.random()*alphabet.length)];}));return {grid,placed,size,level};}
  }
  throw new Error('Estas palabras necesitan más espacio. Aumenta el tamaño o reduce la cantidad.');
 }

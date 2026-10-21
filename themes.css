@@ -8,3 +8,6 @@
 @media(max-width:1300px){.app-toolbar{margin-left:24px;margin-right:24px}}@media(max-width:740px){.app-toolbar{margin:12px 16px 0;flex-wrap:wrap;gap:12px}.theme-control{width:100%;justify-content:space-between}.theme-control select{flex:1;max-width:220px}.app-state{min-width:140px}.app-toolbar .primary{font-size:12px}}
 @media print{.app-toolbar,.install-help{display:none!important}}
 @media screen{.paper-demo{background:var(--surface);border-color:var(--line)}.demo-grid span{border-color:var(--line)}.demo-grid .hi{background:var(--found-bg);color:var(--found-ink)}:root[data-theme=contrast] .status.error{color:#ffdf66}:root[data-theme=contrast] .demo-words span:first-child{color:#ffdf66}}
+
+.app-toolbar{flex-wrap:wrap}.app-toolbar .app-state{min-width:170px}.language-control select{min-width:130px}
+html[lang=de] .segments button{white-space:normal;min-width:0;overflow-wrap:anywhere}
